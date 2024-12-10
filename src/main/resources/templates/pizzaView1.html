@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Http View1</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+
+<div>
+    <h1>Order Delivery Details</h1>
+</div>
+
+<div>
+    <form method="post" th:action="@{/test/pizza/order}" th:object="${Delivery}">
+        <div>
+            <div>
+                <label>
+                    Name:
+                    <input id="deliveryName" type="text" th:field="*{deliveryName}" required>
+                    <div th:if="${#fields.hasErrors('deliveryName')}" th:errors="*{deliveryName}" class="error"></div>
+                </label>
+            </div>
+            <div>
+                <label>
+                    Address:
+                    <input id="deliveryAddress" type="text" th:field="*{deliveryAddress}" required>
+                    <div th:if="${#fields.hasErrors('deliveryAddress')}" th:errors="*{deliveryAddress}" class="error"></div>
+                </label>
+            </div>
+            <div>
+                <label>
+                    Phone:
+                    <input id="deliveryPhoneNumber" type="text" th:field="*{deliveryPhoneNumber}" required>
+                    <div th:if="${#fields.hasErrors('deliveryPhoneNumber')}" th:errors="*{deliveryPhoneNumber}" class="error"></div>
+                </label>
+            </div>
+            <div>
+                <label>
+                    Rush:
+                    <input id="deliveryPriority" type="checkbox" th:field="*{deliveryPriority}">
+                    <div th:if="${#fields.hasErrors('deliveryPriority')}" th:errors="*{deliveryPriority}" class="error"></div>
+                </label>
+            </div>
+            <div>
+                <label>
+                    Comments
+                    <input id="deliveryComments" type="text" th:field="*{deliveryComments}" width="400" height="150" placeholder="Optional. Type here">
+                </label>
+            </div>
+
+            <div>
+                <button type="button" th:href="@{/test}">Cancel Order</button>
+                <button type="submit">Place Order</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>

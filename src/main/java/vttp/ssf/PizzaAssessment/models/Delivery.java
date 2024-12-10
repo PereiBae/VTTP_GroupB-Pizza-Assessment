@@ -5,10 +5,10 @@ import jakarta.validation.constraints.Size;
 
 public class Delivery {
 
-    @NotEmpty
+    @NotEmpty(message = "Your name must be at least 3 characters long")
     @Size(min = 3, message = "Your name must be at least 3 characters long")
     private String deliveryName;
-    @NotEmpty
+    @NotEmpty (message = "Address cannot be empty")
     private String deliveryAddress;
     @Size(min = 8, max = 8, message = "Your phone number must be 8 digits")
     private String deliveryPhoneNumber;
