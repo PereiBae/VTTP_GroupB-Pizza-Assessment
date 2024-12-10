@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div>
+    <h1>Delivery Details</h1>
+</div>
+<div>
+    <div>
+        <h2>
+            Order Number:
+            <a th:href="@{/api/orders/{orderId}(orderId=${OrderId})}" th:text="${OrderId}"></a>
+        </h2>
+    </div>
+    <div>
+        <h2>Your order will be delivered to: <code th:text="${address}"></code></h2>
+    </div>
+    <div>
+        <h2>Pizza cost: $<code th:text="${pizzaCost}"></code></h2>
+    </div>
+    <div>
+        <h2>Rush: $<code th:text="${rush}"></code></h2>
+    </div>
+    <div>
+        <h2>Total Cost: $<code th:text="${totalCost}"></code></h2>
+    </div>
+</div>
+
+</body>
+</html>
